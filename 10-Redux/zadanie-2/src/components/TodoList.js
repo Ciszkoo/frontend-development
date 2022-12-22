@@ -1,17 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 import { doneTodo, deleteTodo } from '../actions/todoActions';
 
 const TodoList = ({ todos, doneTodo, deleteTodo }) => {
+  const navigate = useNavigate();
+  
   return (
     <ul>
       {todos.map((todo) => {
         return (
           <li key={todo.id}>
-            {`${todo.id} ${todo.name} ${todo.date} ${
+            {`${todo.name} ${todo.date} ${
               !todo.done ? 'do zrobienia' : 'zrobione'
             }`}
+            <button onClick={() => navigate(`/todos/${todo.id}`)}>Szczegóły</button>
             <button onClick={() => deleteTodo(todo.id)}>Usuń</button>
             {!todo.done && (
               <button onClick={() => doneTodo(todo.id)}>Zrobione</button>

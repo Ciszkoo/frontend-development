@@ -6,12 +6,7 @@ import { Provider as StoreProvider } from "react-redux";
 import store from "./store";
 import TodoRoute from "./routes/TodoRoute";
 import Todo from "./components/Todo";
-
-const StoreProviderLayout = () => (
-  <StoreProvider store={store}>
-    <Outlet />
-  </StoreProvider>
-);
+import Wrapper from "./components/Todo";
 
 const router = createBrowserRouter([
   {
@@ -19,8 +14,8 @@ const router = createBrowserRouter([
     element: <TodoRoute />,
   },
   {
-    path: "todo",
-    element: <p>1</p>,
+    path: "todos/:id",
+    element: <Wrapper />,
   },
 ]);
 

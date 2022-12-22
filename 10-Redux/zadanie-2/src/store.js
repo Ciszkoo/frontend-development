@@ -1,10 +1,12 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore } from "@reduxjs/toolkit";
 
-import todoReducer from './reducers/todoReducer';
+import notesReducer from "./reducers/notesReducer";
+import todoReducer from "./reducers/todoReducer";
 
 const store = configureStore({
   reducer: {
     todos: todoReducer,
+    notes: notesReducer,
   },
 });
 

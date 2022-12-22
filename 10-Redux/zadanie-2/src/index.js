@@ -4,18 +4,26 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import { Provider as StoreProvider } from "react-redux";
 
 import store from "./store";
-import TodoRoute from "./routes/TodoRoute";
-import Todo from "./components/Todo";
-import Wrapper from "./components/Todo";
+import TodosRoute from "./routes/TodosRoute";
+import TodoWrapper from "./routes/TodoRoute";
+import AddNoteRoute from "./routes/AddNoteRoute";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <TodoRoute />,
+    element: <TodosRoute />,
   },
   {
     path: "todos/:id",
-    element: <Wrapper />,
+    element: <TodoWrapper />,
+  },
+  {
+    path: "notes/add",
+    element: <AddNoteRoute />
+  },
+  {
+    path: "*",
+    element: <p>404</p>,
   },
 ]);
 

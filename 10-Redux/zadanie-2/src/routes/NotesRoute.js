@@ -2,7 +2,9 @@ import React from "react";
 import { connect } from "react-redux";
 import { useNavigate } from "react-router";
 
-const NotesRoute = ({ notes }) => {
+import { deleteNote } from "../actions/notesActions";
+
+const NotesRoute = ({ notes, deleteNote }) => {
   const navigate = useNavigate();
 
   return (
@@ -14,6 +16,7 @@ const NotesRoute = ({ notes }) => {
             <button onClick={() => navigate(`/notes/${note.id}`)}>
               Szczegóły
             </button>
+            <button onClick={() => deleteNote(note.id)}>Usuń</button>
           </li>
         );
       })}
@@ -27,4 +30,10 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(NotesRoute);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    deleteNote: (id) => dispatch(deleteNote(id)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(NotesRoute);

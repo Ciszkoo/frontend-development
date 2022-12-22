@@ -12,6 +12,7 @@ const AddNoteRoute = ({ addNote }) => {
     addNote({
       id: uuidv4(),
       name: data.name,
+      content: data.content,
     });
     reset();
   };
@@ -20,6 +21,8 @@ const AddNoteRoute = ({ addNote }) => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <label htmlFor="name">Nazwa notatki:</label>
       <input type="text" id="name" {...register("name")} />
+      <label htmlFor="content">Treść notatki:</label>
+      <textarea id="content" {...register("content")} />
       <button type="submit">Dodaj notatkę</button>
     </form>
   );

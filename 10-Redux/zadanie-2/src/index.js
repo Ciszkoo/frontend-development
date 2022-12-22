@@ -7,6 +7,7 @@ import store from "./store";
 import TodosRoute from "./routes/TodosRoute";
 import TodoWrapper from "./routes/TodoRoute";
 import AddNoteRoute from "./routes/AddNoteRoute";
+import NotesRoute from "./routes/NotesRoute";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
   {
     path: "todos/:id",
     element: <TodoWrapper />,
+  },
+  {
+    path: "notes",
+    element: <NotesRoute />,
   },
   {
     path: "notes/add",

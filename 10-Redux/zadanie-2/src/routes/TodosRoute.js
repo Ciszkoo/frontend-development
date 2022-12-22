@@ -10,6 +10,7 @@ const TodosRoute = () => {
   return (
     <>
       <div>
+        <button onClick={() => navigate('/notes')}>Notatki</button>
         <button onClick={() => navigate('/notes/add')}>Dodaj notatki</button>
       </div>
       <TodoForm />
